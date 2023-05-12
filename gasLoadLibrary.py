@@ -64,7 +64,7 @@ def getWFactor(delta, in_r):
 	# this list will hold the W values read from the csv, used to interpolate
 	W = [0,0,0,0]
 
-	with open('HeliumCellGasLoad/Table1.csv') as table1:
+	with open('resources/Table1.csv') as table1:
 		reader = csv.reader(table1);
 		i = 0;
 		while(i < row):
@@ -116,7 +116,7 @@ def displayWPlot(delta, in_r):
 	lines = [[],[],[],[],[],[]];
 	print("\n")
 
-	with open('HeliumCellGasLoad/Table1.csv') as table1:
+	with open('resources/Table1.csv') as table1:
 		reader = csv.reader(table1);
 		while reader.line_num < 14:
 			current = next(reader);
@@ -292,7 +292,7 @@ def heliumCellSimulation(P_min, P_max, cell_length=5, num=24):
 
 	# loading pump curves...
 	GV80 = [[],[]]  # first elem is P array, second elem is S array
-	with open('HeliumCellGasLoad/GV80_EH500_60Hz.csv') as pump_curve:
+	with open('resources/GV80_EH500_60Hz.csv') as pump_curve:
 	    reader = csv.reader(pump_curve);
 	    next(reader);       # advance pointer one row
 	    for elem in reader:
@@ -302,7 +302,7 @@ def heliumCellSimulation(P_min, P_max, cell_length=5, num=24):
 	#endwith
 
 	EPX500 = [[],[]]  # first elem is P array, second elem is S array
-	with open('HeliumCellGasLoad/EPX500LE.csv') as pump_curve:
+	with open('resources/EPX500LE.csv') as pump_curve:
 	    reader = csv.reader(pump_curve);
 	    next(reader);       # advance pointer one row
 	    for elem in reader:
